@@ -46,16 +46,17 @@ models = {
     "ElasticNet": ElasticNet (alpha=1.0, l1_ratio=0.5)
 }
 result= {}
+result= {}
 for name,model in models.items():
     pipeline = Pipeline([('poly',PolynomialFeatures(degree=2)),
     ('regressor',model)
     ])
-pipeline.fit(x_train, y_train)
-predictions = pipeline.predict(x_test)
-mse = mean_squared_error(y_test, predictions)
-mae = mean_absolute_error(y_test, predictions)
-r2 = r2_score(y_test, predictions)
-result[name] = {'MSE': mse, 'MAE': mae, 'R² Score': r2}
+    pipeline.fit(x_train, y_train)
+    predictions = pipeline.predict(x_test)
+    mse = mean_squared_error(y_test, predictions)
+    mae = mean_absolute_error(y_test, predictions)
+    r2 = r2_score(y_test, predictions)
+    result[name] = {'MSE': mse, 'MAE': mae, 'R² Score': r2}
 print('Name: Suwasthika V')
 print('Reg. No: 212225040441')
 for model_name, metrics in result.items():
@@ -76,20 +77,12 @@ plt.ylabel('R2 Score')
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
-plt.subplot(1, 2, 1)
-sns.barplot(x='Model', y='MAE', data=results_df, palette='viridis')
-plt.title('Mean Absolute Error (MAE)')
-plt.ylabel('MAE')
-plt.xticks(rotation=45)
 ```
 
 ## Output:
-<img width="579" height="164" alt="image" src="https://github.com/user-attachments/assets/d45b3f59-a9e6-477d-8243-b292c79c8c9b" />
-<img width="911" height="103" alt="image" src="https://github.com/user-attachments/assets/f4890dd5-ba3b-422f-9a1f-588714d93007" />
-<img width="381" height="82" alt="image" src="https://github.com/user-attachments/assets/94c7b1d6-e084-4379-b1e1-2ca738955ed3" />
-<img width="630" height="668" alt="image" src="https://github.com/user-attachments/assets/cc356bc1-0720-4e40-b42a-d4450f377087" />
-<img width="502" height="673" alt="image" src="https://github.com/user-attachments/assets/5534c6b1-a5c2-49ea-a118-d31613f7d069" />
-<img width="509" height="660" alt="image" src="https://github.com/user-attachments/assets/7eae32d0-62a0-48ed-8a08-123d6861bbcd" />
+<img width="1247" height="272" alt="image" src="https://github.com/user-attachments/assets/34564c91-6aa3-42a8-bd52-2768d6e5ecf1" />
+<img width="813" height="137" alt="image" src="https://github.com/user-attachments/assets/961a5aa4-38bb-4185-9c40-4c76c18359e0" />
+<img width="1249" height="514" alt="image" src="https://github.com/user-attachments/assets/be2b8bb4-aeee-43d4-a9b9-bfe640b62dce" />
 
 ## Result:
 Thus, Ridge, Lasso, and ElasticNet regularization models were implemented successfully to predict the car price and the model's performance was evaluated using R² score and Mean Squared Error.
