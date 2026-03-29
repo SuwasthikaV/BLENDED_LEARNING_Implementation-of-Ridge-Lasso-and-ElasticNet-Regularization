@@ -46,7 +46,6 @@ models = {
     "ElasticNet": ElasticNet (alpha=1.0, l1_ratio=0.5)
 }
 result= {}
-result= {}
 for name,model in models.items():
     pipeline = Pipeline([('poly',PolynomialFeatures(degree=2)),
     ('regressor',model)
